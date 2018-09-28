@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vm">
+			{{inObj.num||(inObj.num=0)}}
+			<button @click="change(inObj)">add</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				inObj: {}
+			},
+			methods: {
+				change: function(data) {
+					Vue.set(data,"num",++data.num);
+				}
+			}
+		});
+		var outObj = {
+			num: 1
+		}
+		vm.inObj = outObj;
+	</script>
+
+</html>

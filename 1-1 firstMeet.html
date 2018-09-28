@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vue">
+			{{msg}}<br />
+
+			<input type="text" name="" id="" value="" v-model="num1" />+
+			<input type="text" name="" id="" value="" v-model="num2" />= {{- -num1 - -num2}} <br />
+			<input type="text" name="" id="" value="" v-model="str" />{{firstUpper}}
+			<test v-bind:todo="msg"></test>
+			
+			<ul>
+				<li v-for="item of datals">{{item}}</li>
+			</ul>
+			
+		</div>
+
+		
+
+	</body>
+	<script type="text/javascript">
+		Vue.component("test", {
+			props: ["todo"],
+			template: "<div>{{todo}}</div>"
+		})
+		var app = new Vue({
+			el: "#vue",
+			data: {
+				msg: "HelloVue!",
+				num1: 0,
+				num2: 0,
+				str: "",
+				datals:[1,2,3,4,5]
+			},
+			computed: {
+				firstUpper: function() {
+					return this.str.substring(0,1).toUpperCase()+this.str.substring(1);
+				}
+			}
+		});
+		
+	</script>
+
+</html>

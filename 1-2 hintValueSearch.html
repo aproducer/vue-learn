@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vm">
+			<input type="text" name="" id="" value="" v-model="str"/>
+			<ul>
+				<li v-for="data in change">{{data}}</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				datalist: [
+					"asdf",
+					"123sd",
+					"aaaa",
+					"bbbb",
+					"cccc",
+					"ab11",
+					"cd22",
+					"fdsa",
+					"11aas"
+				],
+				str:""
+			},
+			methods: {
+				check:function(data){
+					return data.match(new RegExp(`^${this.str}`))
+				}
+			},
+			computed:{
+				change:function(){
+					return this.datalist.filter(data=>data.match(new RegExp(`^${this.str}`)))
+				}
+			}
+		})
+	</script>
+
+</html>

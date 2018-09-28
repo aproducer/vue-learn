@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vm">
+			<label for="" v-for="data of datalist"><input  type="checkbox" name="" id="" v-model="sum" :value="data" />{{data}}<br /></label>
+			<p>{{sum.reduce(total)}}</p>
+			<p>{{tt}}</p>
+			<p>{{sum}}</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				datalist: [{
+					"price": 120,
+					"num": 10
+				},{
+					"price": 120,
+					"num": 20
+				},{
+					"price": 100,
+					"num": 30
+				}],
+				sum:[0]
+			},
+			methods:{
+				total:function(total,val){
+					return - -total+val.num*val.price;
+				}
+			},
+			computed:{
+				tt:function(){
+					return this.sum.reduce((total,val)=> - -total+val.num*val.price)
+				}
+			}
+		})
+	</script>
+
+</html>
