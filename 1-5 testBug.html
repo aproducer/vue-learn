@@ -4,31 +4,47 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+
+		<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
 		<div id="vm">
-			{{inObj.num||(inObj.num=0)}}
-			<button @click="change(inObj)">add</button>
+			<p>{{test.num}}<button @click="change()">+</button> </p>
 		</div>
 	</body>
 	<script type="text/javascript">
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				inObj: {}
+				test: {},
 			},
 			methods: {
-				change: function(data) {
-					Vue.set(data,"num",++data.num);
+				change() {
+
+					//					this.test.num||
+
+					//					(this.test.num=0)
+
+					//					Object.defineProperty.call(this, this.test, "num", {
+					//						value: 0,
+					//						writable: true
+					//					})
+
+					//					Vue.set(this.test, "num", 0)
+
+					Vue.set(this.test, "num", this.test.num + 1);
+
+					this.test = this.test;
+					console.log(this.test.num, a);
 				}
 			}
 		});
-		var outObj = {
-			num: 1
-		}
-		vm.inObj = outObj;
+		a = {}
+		vm.test = a;
+		a.num = 1
+		//		setTimeout(`$.get("js/testBug.json",(data)=>vm.test.num=data.num)`,500);
 	</script>
 
 </html>
