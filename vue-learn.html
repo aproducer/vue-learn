@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vm"></div>
+	</body>
+	<script type="text/javascript">
+		//		var origin = {
+		//			a: 1
+		//		}
+		//		var vm = new Vue({
+		//			//选项对象
+		//			el: "#vm",
+		//			data: origin
+		//		});
+		//		vm.$data == origin; //true
+		//		vm.$el; //<div id="vm"></div> 
+		//		vm.$watch("a", function(newValue, oldValue) {
+		//			//在vm.a改变后调用
+		//			console.log("vm.$watch调用结果:"+newValue, oldValue);
+		//		});
+		var vm = new Vue({
+			created: function() {
+				console.log("created已被调用");
+			}
+		})
+	</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="vm">
+			<button @click="change(1)">1</button>
+			<button @click="change(2)">2</button>
+			<button @click="change(3)">3</button>
+			<keep-alive>
+				<component :is="tag"></component>
+			</keep-alive>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		//		Vue.component("son02", {
+		//			template: "<h1>son02</h1>",
+		//			data: function() {
+		//				return {
+		//					a: 1
+		//				}
+		//			}
+		//		})
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				tag: 'son01'
+			},
+			methods: {
+				change(num) {
+					switch(num) {
+						case 1:
+							this.tag = 'son01'
+							break;
+						case 2:
+							this.tag = 'son02'
+							break;
+						case 3:
+							this.tag = 'son03'
+							break;
+						default:
+							break;
+					}
+				}
+			},
+			components: {
+				"son01": {
+					template: "<h1>son01 <input type='text' /></h1>"
+				},
+				"son02": {
+					template: "<h1>son02</h1>"
+				},
+				"son03": {
+					template: "<h1>son03</h1>"
+				}
+			}
+		});
+	</script>
+
+</html>

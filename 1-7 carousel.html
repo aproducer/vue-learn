@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#pic img{
+				width: 300px;
+				border: 1px solid black;
+			}
+			li{
+				float: left;
+				list-style: none;
+			}
+			li img{
+				width: 60px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="vm">
+			<div id='pic'>
+				<component :is="picname"></component>
+			</div>
+			<ul>
+				<li @click="change('pic1')"><img src='img/koala/1.jpg' /></li>
+				<li @click="change('pic2')"><img src='img/koala/2.jpg' /></li>
+				<li @click="change('pic3')"><img src='img/koala/3.jpg' /></li>
+				<li @click="change('pic4')"><img src='img/koala/4.jpg' /></li>
+				<li @click="change('pic5')"><img src='img/koala/5.jpg' /></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				picname:'pic1'
+			},methods:{
+				change(msg){
+					this.picname=msg;
+				}
+			},
+			components: {
+				"pic1": {
+					template: "<div id='pic'><img src='img/koala/1.jpg' /></div>"
+				},
+				"pic2": {
+					template: "<div id='pic'><img src='img/koala/2.jpg' /></div>"
+				},
+				"pic3": {
+					template: "<div id='pic'><img src='img/koala/3.jpg' /></div>"
+				},
+				"pic4": {
+					template: "<div id='pic'><img src='img/koala/4.jpg' /></div>"
+				},
+				"pic5": {
+					template: "<div id='pic'><img src='img/koala/5.jpg' /></div>"
+				},
+			}
+		})
+	</script>
+
+</html>
