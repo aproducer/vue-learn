@@ -1,15 +1,15 @@
 <template>
-	<button @click="show()">son</button>
+	<h1 v-change="color">Color Change</h1>
 </template>
 
 <script>
 	export default{
 		name:"son",
-		props:["name"],
-		methods:{
-			 show(){
-				console.log(this.name);
-				this.$emit("fromSon","this is the msg from son!")
+		props:["color"],
+		directives:{
+			change:(el,color)=>{
+				console.log(el,color.value);
+				el.style.color=color.value;
 			}
 		}
 	}

@@ -1,21 +1,25 @@
 <template>
 	<div id="">
-		<h1>father</h1>
-		
-		<son name="son!" @fromSon="show" />
-	</div>
+		<button @click="change">change</button>
+		<son :color="color" />
+	</div> 
 </template>
 
 <script>
 	import son from "./son"
 	export default {
 		name: "father",
+		data(){
+			return{
+				color:"red"
+			}
+		},
 		components: {
 			son
 		},
 		methods:{
-			show(msg){
-				console.log(msg)
+			change(){
+				this.color=`rgb(${~~(Math.random()*255)},${~~(Math.random()*255)},${~~(Math.random()*255)})`
 			}
 		}
 	}
