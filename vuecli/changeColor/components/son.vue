@@ -7,7 +7,7 @@
 		name:"son",
 		props:["color"],
 		directives:{
-			change:(el,color)=>{
+			change(el,color){
 				console.log(el,color.value);
 				el.style.color=color.value;
 			}

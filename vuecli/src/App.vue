@@ -1,17 +1,38 @@
 <template>
 	<div id="app">
-		<!--<img src="./assets/logo.png">
-    <router-view/>-->
-	<father />
+		<img src="./assets/logo.png"><br />
+		<router-link tag='button' to='/cinema'>Cinema</router-link>
+		
+		<router-view/>
 	</div>
 </template>
 
 <script>
-	import father from "./components/father"
 	export default {
 		name: 'App',
-		components:{
-			father
+		beforeCreate() {
+			console.log("beforeCreate")
+		},
+		created() {
+			console.log("create")
+		},
+		beforeMount() {
+			console.log("beforeMount")
+		},
+		mounted() {
+			console.log("mounted")
+		},
+		beforeUpdate() {
+			console.log("beforeUpdate")
+		},
+		updated() {
+			console.log("updated")
+		},
+		beforeDestroy() {
+			console.log("beforeDestroy")
+		},
+		destroyed() {
+			console.log("destroyed")
 		}
 	}
 </script>
